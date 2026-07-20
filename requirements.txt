@@ -1,0 +1,5 @@
+openai
+networkx
+faiss-cpu
+sentence-transformers
+python-dotenv

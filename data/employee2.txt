@@ -1,0 +1,5 @@
+Mary works at ABC Telecom.
+
+Mary developed Customer Recommendation Engine.
+
+Recommendation Engine uses Machine Learning.

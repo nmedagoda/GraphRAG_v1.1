@@ -1,0 +1,5 @@
+John works at ABC Telecom.
+
+John manages Project Apollo.
+
+Apollo uses Python.
