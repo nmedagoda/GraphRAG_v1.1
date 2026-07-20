@@ -1,5 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import faiss
+import numpy as np
 
 model=SentenceTransformer(
         "all-MiniLM-L6-v2"
@@ -11,10 +12,18 @@ chunks=[]
 
 def build(chunks_input):
 
-    global chunks
+        global chunks, index
 
-    chunks=chunks_input
+        chunks.clear()
+        chunks.extend(chunks_input)
 
-    vectors=model.encode(chunks)
+        # Recreate the index each build so ids always align with current chunks.
+        index=faiss.IndexFlatL2(384)
 
-    index.add(vectors)
+        if not chunks:
+                return
+
+        vectors=model.encode(chunks, convert_to_numpy=True)
+        vectors=np.asarray(vectors, dtype="float32")
+
+        index.add(vectors)
