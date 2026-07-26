@@ -3,3 +3,11 @@ networkx
 faiss-cpu
 sentence-transformers
 python-dotenv
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-openai
+chromadb
+pypdf
+tiktoken
