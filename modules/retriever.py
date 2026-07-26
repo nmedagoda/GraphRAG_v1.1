@@ -14,6 +14,7 @@ def _tokens(text):
 def retrieve(question, top_k=3):
 
     chunks = embedder.chunks
+    print(f"Retriever: {len(chunks)} chunks available in the database.")
 
     if not chunks:
         return []
@@ -45,5 +46,5 @@ def retrieve(question, top_k=3):
             merged.append(item)
         if len(merged) == top_k:
             break
-
+    print(f"Retriever: {len(merged)} chunks retrieved for question: {question}")
     return merged
