@@ -19,16 +19,16 @@ def ask(question):
     )
 
     prompt = f"""
-{SYSTEM_PROMPT}
+        {SYSTEM_PROMPT}
 
-Context
+        Context
 
-{context}
+        {context}
 
-Question
+        Question
 
-{question}
-"""
+        {question}
+        """
 
     response = llm.invoke(prompt)
 
