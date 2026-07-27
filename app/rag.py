@@ -1,7 +1,12 @@
 from langchain_openai import ChatOpenAI
-from retriever import retrieve
-from prompt import SYSTEM_PROMPT
-from config import MODEL_NAME
+if __package__:
+    from .retriever import retrieve
+    from .prompt import SYSTEM_PROMPT
+    from .config import MODEL_NAME
+else:
+    from retriever import retrieve
+    from prompt import SYSTEM_PROMPT
+    from config import MODEL_NAME
 
 
 llm = ChatOpenAI(
@@ -33,3 +38,4 @@ def ask(question):
     response = llm.invoke(prompt)
 
     return response.content
+    #http://localhost:8000/docs

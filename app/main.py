@@ -2,7 +2,10 @@ from fastapi import FastAPI
 
 from pydantic import BaseModel
 
-from rag import ask
+if __package__:
+    from .rag import ask
+else:
+    from rag import ask
 
 app = FastAPI()
 

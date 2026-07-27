@@ -1,8 +1,13 @@
 from langchain_openai import OpenAIEmbeddings
 
-from langchain_community.vectorstores import Chroma
+##from langchain_community.vectorstores import Chroma
+##from langchain.vectorstores import Chroma
+from langchain_chroma import Chroma
 
-from config import CHROMA_DB
+if __package__:
+    from .config import CHROMA_DB
+else:
+    from config import CHROMA_DB
 
 
 embeddings = OpenAIEmbeddings()
