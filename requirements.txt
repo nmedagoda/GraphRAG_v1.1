@@ -11,3 +11,4 @@ langchain-openai
 chromadb
 pypdf
 tiktoken
+langchain-chroma

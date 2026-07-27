@@ -1,14 +1,21 @@
 '''This script reads every PDF, chunks the text and creates embeddings.'''
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+##from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_openai import OpenAIEmbeddings
 
-from langchain_community.vectorstores import Chroma
+#from langchain_community.vectorstores import Chroma
+##from langchain.vectorstores import Chroma
+from langchain_chroma import Chroma
 
-from config import PDF_FOLDER
-from config import CHROMA_DB
+if __package__:
+    from .config import PDF_FOLDER
+    from .config import CHROMA_DB
+else:
+    from config import PDF_FOLDER
+    from config import CHROMA_DB
 
 
 def load_documents():
@@ -45,7 +52,7 @@ def create_vector_db(chunks):
         embedding=embeddings,
         persist_directory=CHROMA_DB
     )
-    db.persist()
+    #db.persist()
     print("Vector database created")
 
 

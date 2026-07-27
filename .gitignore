@@ -1,2 +1,6 @@
 # Environment variables ignore file
 .env
+# data folder ignore file
+data/pdfs
+# Ignore the vector database folder
+vector_db   
